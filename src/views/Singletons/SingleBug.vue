@@ -9,7 +9,7 @@ const route = useRoute();
 const bug = ref({})
 
 onMounted(async () => {
-    bug = await getOneBug(route.params.name)
+    bug.value = await getOneBug(route.params.name)
 })
 </script>
 

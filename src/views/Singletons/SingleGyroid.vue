@@ -9,7 +9,7 @@ const route = useRoute();
 const gyroid = ref({})
 
 onMounted(async () => {
-    gyroid = await getOneGyroid(route.params.name)
+    gyroid.value = await getOneGyroid(route.params.name)
 })
 </script>
 

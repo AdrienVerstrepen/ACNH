@@ -9,7 +9,7 @@ const route = useRoute();
 const fossil = ref({})
 
 onMounted(async () => {
-    fossil = await getOneFossil(route.params.name)
+    fossil.value = await getOneFossil(route.params.name)
 })
 </script>
 

@@ -14,11 +14,21 @@ const { t } = useI18n()
     <router-link to="/gyroids" class="navlink">{{ t('nav.gyroids') }}</router-link>
     <router-link to="/arts" class="navlink">{{ t('nav.arts') }}</router-link>
     <router-link to="/items" class="navlink">{{ t('nav.items') }}</router-link>
+
+    <select v-model="$i18n.locale" class="lang-switcher">
+      <option value="fr">FR</option>
+      <option value="en">EN</option>
+    </select>
   </nav>
   <router-view/>
 </template>
 
 <style scoped>
+.lang-switcher {
+  margin-left: 15px;
+  cursor: pointer;
+}
+
   .navbar {
     display:flex;
     flex-direction: row;

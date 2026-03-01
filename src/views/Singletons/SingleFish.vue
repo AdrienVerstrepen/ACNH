@@ -9,7 +9,7 @@ const route = useRoute();
 const fish = ref({})
 
 onMounted(async () => {
-    fish = await getOneFish(route.params.name)
+    fish.value = await getOneFish(route.params.name)
 })
 </script>
 
