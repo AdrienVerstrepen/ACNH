@@ -12,6 +12,7 @@ Ici vous pourrez garder une trace de l'avancée de vos collections :
 - 🎨 Œuvres d'art
 - 🐞 Insectes
 - 🤖 Gyroïdes
+- 🦐 Créatures marines
 
 Vous pouvez également suivre une wishlist qui contient les éléments que vous souhaitez obtenir prochainement.
 
@@ -25,6 +26,7 @@ With this tool, you will be able to track your different collections :
 - 🎨 Art pieces
 - 🐞 Bugs
 - 🤖 Gyroids
+- 🦐 Sea creatures
 
 A wishlist feature is also available to help you keep track of the items you are chasing down.
 
