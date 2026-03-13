@@ -5,16 +5,9 @@ export const getAllArts = async () => {
 		const response = await nookipediaClient.get("/nh/art");
 		return response.data
 	} catch (error) {
-		if (error.response) {
-			// Erreur serveur
-		} else if (error.request) {
-			// Aucune réponse
-		} else { 
-			// Autre chose
-		}
+		return {}
 	}
 }
-
 
 export const getOneArt = async (artName) => {
 	try {

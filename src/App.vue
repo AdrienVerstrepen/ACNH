@@ -1,5 +1,6 @@
 <script setup>
-import { useI18n } from 'vue-i18n';
+import { useI18n } from 'vue-i18n'
+import NotificationPanel from './components/NotificationPanel.vue'
 
 const { t } = useI18n()
 
@@ -21,6 +22,7 @@ const { t } = useI18n()
     </select>
   </nav>
   <router-view/>
+  <NotificationPanel></NotificationPanel>
 </template>
 
 <style scoped>

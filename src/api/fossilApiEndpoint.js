@@ -5,7 +5,7 @@ export const getAllFossils = async () => {
 		const response = await nookipediaClient.get("/nh/fossils/individuals");
 		return response.data
 	} catch (error) {
-		console.error('Erreur : ', error)
+		return {}
 	}
 }
 

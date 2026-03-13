@@ -5,7 +5,7 @@ export const getAllGyroids = async () => {
 		const response = await nookipediaClient.get("/nh/gyroids");
 		return response.data
 	} catch (error) {
-		console.error('Erreur : ', error)
+		return {}
 	}
 }
 

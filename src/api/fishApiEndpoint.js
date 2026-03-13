@@ -1,10 +1,11 @@
 import nookipediaClient from '@/api/NookipediaApi'
+
 export const getAllFishes = async () => {
 	try {
 		const response = await nookipediaClient.get("/nh/fish");
 		return response.data
 	} catch (error) {
-		console.error('Erreur : ', error)
+		return {}
 	}
 }
 

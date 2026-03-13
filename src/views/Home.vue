@@ -2,6 +2,7 @@
 import { useI18n } from 'vue-i18n'
 
 const { t } = useI18n()
+
 </script>
 
 <template>
@@ -11,7 +12,6 @@ const { t } = useI18n()
   <br>
   Feel free to star the project on <a href="https://github.com/AdrienVerstrepen/ACNH">GitHub</a>.
 
-  <div class="leaf"></div>
 </template>
 
 <style scoped>
