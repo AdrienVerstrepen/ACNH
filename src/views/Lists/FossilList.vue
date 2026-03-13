@@ -1,28 +1,17 @@
 <script setup>
 import { ref, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
-import nookipediaClient from '@/api/NookipediaApi'
 import FossilCard from '@/components/FossilCard.vue'
 import CardContainer from '@/components/CardContainer.vue'
 import ListContainer from '@/components/ListContainer.vue'
+import { getAllFossils } from '@/api/fossilApiEndpoint'
 
 const router = useRouter();
 
-const fossiles = ref([])
+const fossils = ref([])
 
-const getAllFossiles = async () => {
-	try {
-		const response = await nookipediaClient.get("/nh/fossils/individuals");
-		response.data.forEach(element => {
-            fossiles.value.push(element)
-        });
-	} catch (error) {
-		console.error('Erreur : ', error)
-	}
-}
-
-onMounted(() => {
-    getAllFossiles()
+onMounted(async () => {
+    fossils.value = await getAllFossils()
 })
 
 const getFossilDetails = (fossilName) => {
@@ -36,7 +25,7 @@ const getFossilDetails = (fossilName) => {
 
 <template>
     <ListContainer>
-        <div v-for="fossil in fossiles" :key="fossil.number">
+        <div v-for="fossil in fossils" :key="fossil.number">
             <CardContainer>
                 <FossilCard :name="fossil.name" :imgUrl="fossil.image_url"></FossilCard>
                 <button @click="getFossilDetails(fossil.name)">More informations !</button>

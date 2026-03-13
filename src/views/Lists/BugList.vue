@@ -1,26 +1,17 @@
 <script setup>
 import { ref, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
-import nookipediaClient from '@/api/NookipediaApi'
 import BugCard from '@/components/BugCard.vue'
 import CardContainer from '@/components/CardContainer.vue'
 import ListContainer from '@/components/ListContainer.vue'
+import { getAllBugs } from '@/api/bugApiEndpoint'
 
 const router = useRouter();
 
 const bugs = ref([])
 
-const getAllBugs = async () => {
-	try {
-		const response = await nookipediaClient.get("/nh/bugs");
-		bugs.value = response.data
-	} catch (error) {
-		console.error('Erreur : ', error)
-	}
-}
-
-onMounted(() => {
-    getAllBugs()
+onMounted( async () => {
+    bugs.value = await getAllBugs()
 })
 
 const getBugDetails = (bugName) => {

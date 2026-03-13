@@ -1,21 +1,21 @@
 import { ref, computed } from 'vue'
 import { defineStore } from 'pinia'
 
-export const useWishlist = defineStore('wishlist', () => {
+export const useWishlistStore = defineStore('wishlist', () => {
   // STATES
-  wishlist = ref([])
+  const wishlist = ref([])
 
   // GETTERS
-  numberOfWishes = computed(() => wishlist.value.length())
+  const numberOfWishes = computed(() => wishlist.value.length())
 
   // ACTIONS
-  toggleWishlist((id) => {
-    
-  })
+  const addToWishlist = (item) => {
+    wishlist.value.push(item.name)
+  }
   
   return {
     wishlist,
     numberOfWishes,
-    toggleWishlist
+    addToWishlist
   }
 })

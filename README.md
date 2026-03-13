@@ -11,6 +11,7 @@ Ici vous pourrez garder une trace de l'avancée de vos collections :
 - 🦴 Fossiles
 - 🎨 Œuvres d'art
 - 🐞 Insectes
+- 🤖 Gyroïdes
 
 Vous pouvez également suivre une wishlist qui contient les éléments que vous souhaitez obtenir prochainement.
 
@@ -23,6 +24,7 @@ With this tool, you will be able to track your different collections :
 - 🦴 Fossils
 - 🎨 Art pieces
 - 🐞 Bugs
+- 🤖 Gyroids
 
 A wishlist feature is also available to help you keep track of the items you are chasing down.
 
@@ -30,7 +32,7 @@ A wishlist feature is also available to help you keep track of the items you are
 * **Front-end** : Vue.js 
 * **Style** : self-made old school CSS
 * **Back-end/API** : Nookipedia REST API
-* **Deployment** : Docker
+* **Deployment** : Docker and Azure
 
 ## Déploiement / Deployment
 

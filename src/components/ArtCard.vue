@@ -1,4 +1,9 @@
 <script setup>
+import { useI18n } from 'vue-i18n'
+
+const { t } = useI18n()
+
+
 defineProps({
     name: String,
     author: String,
@@ -13,7 +18,7 @@ defineProps({
         <div>
             <img :src="imgUrl">
         </div>
-        <span><strong> {{ name }} </strong></span>
+        <span><strong> {{ t('art.' + name) }} </strong></span>
         <p>
             by {{ author }}
             in {{  year }}

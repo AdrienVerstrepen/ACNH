@@ -2,7 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import Home from '@/views/Home.vue'
 import NotFound from '@/components/NotFound.vue'
 import ItemList from '@/views/Lists/ItemList.vue'
-import Wishlist from '@/components/Wishlist.vue'
+import Wishlist from '@/views/Wishlist.vue'
 
 import FishList from '@/views/Lists/FishList.vue'
 import SingleFish from '@/views/Singletons/SingleFish.vue'

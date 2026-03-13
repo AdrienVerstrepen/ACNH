@@ -1,4 +1,9 @@
 <script setup>
+import { useI18n } from 'vue-i18n'
+
+const { t } = useI18n()
+
+
 defineProps({
     name: String,
     number: Number,
@@ -13,7 +18,7 @@ defineProps({
         <div>
             <img :src="imgUrl">
         </div>
-        <span><strong> {{ name }} </strong></span>
+        <span><strong> {{ t('fish.' + name) }} </strong></span>
         <p>
             #{{ number }}
             {{ location }}

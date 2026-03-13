@@ -1,4 +1,8 @@
 <script setup>
+import { useI18n } from 'vue-i18n'
+
+const { t } = useI18n()
+
 defineProps({
     name: String,
     imgUrl: String,
@@ -10,7 +14,7 @@ defineProps({
         <div>
             <img :src="imgUrl">
         </div>
-        <strong> {{ name }} </strong>
+        <strong> {{ t('gyroids.' + name ) }} </strong>
     </div>
 </template>
 <style scoped>
