@@ -42,3 +42,5 @@ __screenshots__/
 .env
 .vscode
 doc.yaml
+refacto/*
+old/*

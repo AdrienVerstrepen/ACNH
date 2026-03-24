@@ -1,44 +1,30 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import Home from '@/views/Home.vue'
-import NotFound from '@/components/NotFound.vue'
-import ItemList from '@/views/Lists/ItemList.vue'
-import Wishlist from '@/views/Wishlist.vue'
+import { endpoints } from '@/utils/endpoints'
 
-import FishList from '@/views/Lists/FishList.vue'
-import SingleFish from '@/views/Singletons/SingleFish.vue'
+const dynamicRoutes = endpoints.flatMap(endpoint => {
+  const path = endpoint.split("/")[0]
 
-import BugList from '@/views/Lists/BugList.vue'
-import SingleBug from '@/views/Singletons/SingleBug.vue'
-
-import FossilList from '@/views/Lists/FossilList.vue'
-import SingleFossil from '@/views/Singletons/SingleFossil.vue'
-
-import GyroidList from '@/views/Lists/GyroidList.vue'
-import SingleGyroid from '@/views/Singletons/SingleGyroid.vue'
-
-import ArtList from '@/views/Lists/ArtList.vue'
-import SingleArt from '@/views/Singletons/SingleArt.vue'
+  return [
+    {
+      path: `/${path}`,
+      name: path,
+      component: () => import('@/views/ItemListView.vue'),
+      props: {endpoint: endpoint}
+    },
+    {
+      path: `/${path}/:name`, 
+      name: `${path}-detail`,
+      component: () => import('@/views/SingleItem.vue')
+    }
+  ]
+})
 
 const routes = [
-  { path: '/', name: 'root', component: Home },
-  { path: '/fishes', name: 'fishes', component: FishList},
-  { path: '/fish/:name', name: 'fish', component: SingleFish},
-
-  { path: '/bugs', name: 'bugs', component: BugList},
-  { path: '/bug/:name', name: 'bug', component: SingleBug},
-
-  { path: '/fossils', name: 'fossils', component: FossilList},
-  { path: '/fossil/:name', name: 'fossil', component: SingleFossil},
-  
-  { path: '/gyroids', name: 'gyroids', component: GyroidList},
-  { path: '/gyroid/:name', name: 'gyroid', component: SingleGyroid},
-
-  { path: '/arts', name: 'arts', component: ArtList},
-  { path: '/art/:name', name: 'art', component: SingleArt},
-
-  { path: '/items', name: 'items', component: ItemList },
-  { path: '/wishlist', name: 'wishlist', component: Wishlist },
-  { path: '/:pathMatch(.*)*', name: '404', component: NotFound },
+  { path: '/', name: 'root', component: () => import('@/views/Home.vue') },
+  { path: '/wishlist', name: 'wishlist', component: () => import('@/views/Wishlist.vue') },
+  { path: '/items', name: 'items', component: () => import('@/views/AllItems.vue')},
+  ...dynamicRoutes,
+  { path: '/:pathMatch(.*)*', name: '404', component: () => import('@/components/NotFound.vue') },
 ]
 
 const router = createRouter({

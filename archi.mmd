@@ -1,0 +1,76 @@
+---
+title : Architecture du projet
+---
+
+
+classDiagram
+direction LR
+    namespace api {
+        class bug {
+            +name
+            +image_url
+            +sell_nook
+            
+            -location()
+            -rarity()
+            -weather()
+        }
+
+        class fish {
+            +name
+            +image_url
+            +sell_nook
+
+            -location()
+            -rarity()
+        }
+
+        class sea {
+            +name
+            +image_url
+            +sell_nook
+
+            -rarity()
+        }
+        
+        class fossil {
+            +name
+            +image_url
+            +sell
+
+            -rarity()
+            -fossil_group()
+        }
+
+        class artwork {
+            +art_name
+            +sell
+            +real_info
+
+            -has_fake()
+            -art_type()
+            -author()
+            -year()
+            -art_style()
+            -buy()
+            -availability()
+            -fake_info()
+        }
+
+        class gyroid {
+            +name
+            +image_url variations[0]
+            +sell_nook
+
+            -sound()
+        }
+
+        class element {
+            +name String
+            +image_url
+            +type String
+            +sell Integer
+            +details Array
+        }
+
+    }

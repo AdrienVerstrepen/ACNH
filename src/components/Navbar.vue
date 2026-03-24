@@ -2,24 +2,28 @@
 import { useI18n } from 'vue-i18n'
 
 const { t } = useI18n()
-</script>
 
+import { endpoints } from '@/utils/endpoints';
+
+const cleanedEndpoints = endpoints.map(endpoint => {
+    return endpoint.split("/")[0]
+})
+</script>
 
 <template>
     <nav class="navbar">
-    <router-link to="/" class="navlink">{{ t('nav.home') }}</router-link>
-    <router-link to="/fishes" class="navlink">{{ t('nav.fishes') }}</router-link>
-    <router-link to="/bugs" class="navlink"> {{ t('nav.bugs') }}</router-link>
-    <router-link to="/fossils" class="navlink"> {{ t('nav.fossils') }} </router-link>
-    <router-link to="/gyroids" class="navlink">{{ t('nav.gyroids') }}</router-link>
-    <router-link to="/arts" class="navlink">{{ t('nav.arts') }}</router-link>
-    <router-link to="/items" class="navlink">{{ t('nav.items') }}</router-link>
+        <router-link to="/" class="navlink">{{ t('nav.home') }}</router-link>
 
-    <select v-model="$i18n.locale" class="lang-switcher">
-      <option value="fr">FR</option>
-      <option value="en">EN</option>
-    </select>
-  </nav>
+        <router-link v-for="endpoint in cleanedEndpoints" :to="'/' + endpoint" class="navlink">{{ t('nav.' + endpoint) }}</router-link>
+    
+        <router-link to="/items" class="navlink">{{ t('nav.items') }}</router-link>
+        <router-link to="/wishlist" class="navlink">{{ t('nav.wishlist') }}</router-link>
+
+        <select v-model="$i18n.locale" class="lang-switcher">
+        <option value="fr">FR</option>
+        <option value="en">EN</option>
+        </select>
+    </nav>
 </template>
 
 <style>
