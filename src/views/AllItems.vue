@@ -38,6 +38,9 @@ const filteredItems = computed(() => {
     const query = search.value.trim().toLowerCase()
     let result = {}
     endpoints.forEach((endpoint) => {
+        if (!items.value[endpoint]) {
+            return
+        }
         result[endpoint] = items.value[endpoint].filter((element) => {
             const name = t(endpoint + "." + element.name.toLowerCase()).toLowerCase()
             return name.trim().includes(query)
@@ -51,8 +54,10 @@ const filteredItems = computed(() => {
 <template>
     <SearchBar v-model="search"></SearchBar>
     <div v-for="endpoint in endpoints" :key="endpoint">
-        <h2>{{ t("nav." + endpoint.split("/")[0]) }}</h2>
+        <div v-if="filteredItems[endpoint]">
+            <h2>{{ t("nav." + endpoint.split("/")[0]) }}</h2>
             <ItemList :items="filteredItems[endpoint]" :endpoint="endpoint"></ItemList>
+        </div>
     </div>
 </template>
 

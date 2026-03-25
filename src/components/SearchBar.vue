@@ -12,4 +12,10 @@ const search = defineModel()
 </template>
 
 <style>
+    input {
+        width: 100%;
+        height: 2.5em;
+        font-size: 20px;
+        text-align: center;
+    }
 </style>

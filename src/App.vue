@@ -4,10 +4,18 @@ import Navbar from './components/Navbar.vue';
 </script>
 
 <template>
-  <Navbar></Navbar>
-  <router-view :key="$route.fullPath"/>
-  <NotificationPanel></NotificationPanel>
+	<header>
+		<Navbar></Navbar>
+	</header>
+	<main>
+		<router-view :key="$route.fullPath"/>
+		<NotificationPanel></NotificationPanel>
+  	</main>
+	<!-- footer -->
 </template>
 
 <style scoped>
+	main {
+		margin: 1em 15vw 0 15vw;
+	}
 </style>
