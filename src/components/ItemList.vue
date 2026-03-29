@@ -1,4 +1,5 @@
 <script setup>
+import { computed } from 'vue';
 import itemCard from './itemCard.vue';
 import CardContainer from './CardContainer.vue';
 import { useWishlistStore } from '@/stores/wishlistStore';
@@ -23,6 +24,10 @@ const getItemDetail = (itemType, itemName) => {
     })  
 }
 
+const wishlistButtonText = (name) => {
+    return t("wishlist." + store.isInWishlist(name))
+}
+
 </script>
 
 <template>
@@ -30,9 +35,9 @@ const getItemDetail = (itemType, itemName) => {
         <div v-for="item in items" :key="item.name" v-bind="item" :type="props.endpoint">
             <CardContainer>
                 <itemCard :name="item.name" :image-url="item.image" :type="props.endpoint" :details="item.details">
-                    <button @click="store.toggleWishlist(item.name, endpoint, item.image)">{{ store.isInWishlist(item.name) ? "Retirer des favs" : "ajouter aux fav"}}</button>
+                    <button @click="store.toggleWishlist(item.name, props.endpoint, item.image)">{{ wishlistButtonText(item.name) }}</button>
                 </itemCard>
-                <button @click="getItemDetail(endpoint, item.name)">More informations !</button>
+                <button @click="getItemDetail(props.endpoint, item.name)">More informations !</button>
             </CardContainer>
         </div>
     </div>

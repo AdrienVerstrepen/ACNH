@@ -6,7 +6,6 @@ export const useNotificationStore = defineStore('notification', () => {
   const notifications = ref([])
 
   // GETTERS
-  
   const lastNotification = computed(() => notifications.findLast())
 
   // ACTIONS

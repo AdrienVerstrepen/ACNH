@@ -17,5 +17,8 @@ const search = defineModel()
         height: 2.5em;
         font-size: 20px;
         text-align: center;
+        border-radius: 20px;
+        border: 5px dashed black;
+        margin-bottom: 50px;
     }
 </style>

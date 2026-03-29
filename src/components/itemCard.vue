@@ -16,9 +16,6 @@ defineProps({
         <img :src="imageUrl" class="image">
     </div>
     <span><strong> {{ t(type + '.' +  name) }} </strong></span>
-    <!-- <p v-for="(detail) in details" :key="detail.key">
-        {{ detail }}
-    </p> -->
     <slot></slot>
 </template>
 

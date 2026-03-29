@@ -1,7 +1,7 @@
 export const standardize = (item) => {
     const {
         name, art_name,
-        image_url, real_info, varitaions,
+        image_url, real_info, variations,
         sell_nook, sell,
         ...rest
     } = item

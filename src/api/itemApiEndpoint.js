@@ -31,6 +31,9 @@ export const getAllItems = async (endpoint) => {
 
 export const getOneItem = async (endpoint, name) => {
 	try {
+		if (endpoint == "fossils") {
+			endpoint = "fossils/individuals"
+		}
 		const response = await nookipediaClient.get(`/nh/${endpoint}/${name}`);
 		return response.data
 	} catch (error) {

@@ -4,6 +4,5 @@ export const endpoints = [
     "gyroids",
     "fossils/individuals",
     "art",
-    "sea",
-//     "villagers"
+    "sea"
 ]

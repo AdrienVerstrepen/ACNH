@@ -1,8 +1,11 @@
 import { ref, computed } from 'vue'
 import { defineStore } from 'pinia'
 import { useNotificationStore } from './notificationStore'
+import i18n from '@/i18n'
 
 export const useWishlistStore = defineStore('wishlist', () => {
+  const { t } = i18n.global
+
   // STATES
   const wishlist = ref([])
   const notificationStore = useNotificationStore()
@@ -15,17 +18,18 @@ export const useWishlistStore = defineStore('wishlist', () => {
 
   const addToWishlist = (name, type, imgUrl) => {
     wishlist.value.push({"name": name, "type": type, "image": imgUrl})
-    notificationStore.addNotification(`${name} added to your wishlist !`)
+    notificationStore.addNotification(`${t(type + "." + name)} ${t("wishlist.added")}`)
   }
 
-  const removeFromWishlist = (name) => {
-    wishlist.value = wishlist.value.filter((currentElement) => currentElement.name != name)
-    notificationStore.addNotification(`${name} removed from your wishlist !`)
+  const removeFromWishlist = (name, type) => {
+    wishlist.value = wishlist.value.filter((currentElement) => !(currentElement.name == name && currentElement.type == type))
+    notificationStore.addNotification(`${t(type + "." + name)} ${t("wishlist.removed")}`)
   }
 
   const toggleWishlist = (name, type, imgUrl) => {
+    console.log(type)
     if (isInWishlist(name)) {
-      removeFromWishlist(name)
+      removeFromWishlist(name, type)
     } else {
       addToWishlist(name, type, imgUrl)
     }

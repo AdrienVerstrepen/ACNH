@@ -18,4 +18,13 @@ import Navbar from './components/Navbar.vue';
 	main {
 		margin: 1em 15vw 0 15vw;
 	}
+
+	header {
+		position: sticky;
+		top: 0;
+		z-index: 1;
+		background: var(--navbar-bg-image);
+		background-size: auto 80%;
+  		background-repeat: repeat-x;
+	}
 </style>

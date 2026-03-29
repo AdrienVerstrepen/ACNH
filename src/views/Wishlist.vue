@@ -12,7 +12,7 @@ const store = useWishlistStore()
         <div class="item" v-for="(element) in store.wishlist" :key="element.name">
             <CardContainer>
                 <ItemCard :name="element.name" :type="element.type" :image-url="element.image">
-                    <button @click="store.toggleWishlist(element.name, endpoint, element.image)">{{ store.isInWishlist ? "Retirer des favs" : "ajouter aux fav"}}</button>
+                    <button @click="store.toggleWishlist(element.name, element.type, element.image)">{{ store.isInWishlist ? "Retirer des favs" : "ajouter aux fav"}}</button>
                 </ItemCard>
             </CardContainer>
         </div>

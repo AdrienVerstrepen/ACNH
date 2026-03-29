@@ -1,4 +1,13 @@
 export default {
+    wishlist: {
+        true: "Retirer de la liste de vœux",
+        false: "Ajouter à la liste de vœux",
+        added: "ajouté(e) à la liste de vœux",
+        removed: "retiré(e) de la liste de vœux"
+    },
+    sentences: {
+        loading: "Chargement...",
+    },
     "nav": {
         "home": "Accueil",
         "fish": "Poissons",
