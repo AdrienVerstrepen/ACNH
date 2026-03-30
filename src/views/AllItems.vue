@@ -1,14 +1,14 @@
 <script setup>
-import { ref, computed, onMounted } from 'vue';
+import { ref, computed, onMounted, reactive, watch } from 'vue'
 import { useI18n } from 'vue-i18n'
-import SearchBar from '@/components/SearchBar.vue';
-import { getAllItems } from '@/api/itemApiEndpoint';
-import { standardize } from '@/utils/standardize';
+import SearchBar from '@/components/SearchBar.vue'
+import { getAllItems } from '@/api/itemApiEndpoint'
+import { standardize } from '@/utils/standardize'
+import { endpoints } from '@/utils/endpoints'
+import ItemList from '@/components/ItemList.vue'
+import gsap from 'gsap'
 
 const { t } = useI18n()
-
-import { endpoints } from '@/utils/endpoints';
-import ItemList from '@/components/ItemList.vue';
 
 const items = ref({})
 
@@ -21,13 +21,22 @@ onMounted(async () => {
         const promises = endpoints.map(async (endpoint) => {
         const data = await getAllItems(endpoint)
         if (data) {
-            items.value[endpoint] = data.map(item => standardize(item))
+            items.value[endpoint] = data.map(item => {
+                const currentItem = standardize(item)
+                return {
+                    ...currentItem,
+                    searchName: t(`${endpoint}.${currentItem.name}`).replace("'", "").replace(".", "").toLowerCase()
+                }
+            })
             loading.value = false
             }
         })
         await Promise.all(promises)
     } finally {
         loading.value = false
+        endpoints.forEach((endpoint) => {
+            numberOfItems.value += items.value[endpoint]?.length
+        })
     }
 })
 
@@ -41,21 +50,27 @@ const filteredItems = computed(() => {
         if (!items.value[endpoint]) {
             return
         }
-        result[endpoint] = items.value[endpoint].filter((element) => {
-            const name = t(endpoint + "." + element.name.toLowerCase()).toLowerCase()
-            return name.trim().includes(query)
-        })
+        result[endpoint] = items.value[endpoint].filter((element) => element.searchName.trim().includes(query))
     })
     return result
+})
+
+const numberOfItems = ref(0)
+const tweened = reactive({
+    number: 0
+})
+
+watch(numberOfItems, (n) => {
+    gsap.to(tweened, { duration: 0.5, number: Number(n) || 0})
 })
 
 </script>
 
 <template>
     <SearchBar v-model="search"></SearchBar>
+    {{ tweened.number.toFixed(0) }} éléments...
     <div v-for="endpoint in endpoints" :key="endpoint">
         <div v-if="filteredItems[endpoint]">
-            <h2>{{ t("nav." + endpoint.split("/")[0]) }}</h2>
             <ItemList :items="filteredItems[endpoint]" :endpoint="endpoint"></ItemList>
         </div>
     </div>

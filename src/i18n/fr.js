@@ -31,7 +31,8 @@ export default {
         "fossils": "Fossiles",
         "gyroids": "Gyroïdes",
         "art": "Œuvres d'art",
-        "sea": "Créatures marines"
+        "sea": "Créatures marines",
+        "infos": "Plus d'informations !"
     },
     fish: {
         'anchovy': 'Anchois',

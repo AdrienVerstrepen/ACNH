@@ -17,6 +17,7 @@ export const useWishlistStore = defineStore('wishlist', () => {
   const isInWishlist = (name) => wishlist.value.some(favori => favori.name === name)
 
   const addToWishlist = (name, type, imgUrl) => {
+    console.log(name, type)
     wishlist.value.push({"name": name, "type": type, "image": imgUrl})
     notificationStore.addNotification(`${t(type + "." + name)} ${t("wishlist.added")}`)
   }
@@ -27,7 +28,8 @@ export const useWishlistStore = defineStore('wishlist', () => {
   }
 
   const toggleWishlist = (name, type, imgUrl) => {
-    console.log(type)
+    console.log(name, type)
+    console.log(wishlist.value)
     if (isInWishlist(name)) {
       removeFromWishlist(name, type)
     } else {

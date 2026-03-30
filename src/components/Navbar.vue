@@ -20,8 +20,8 @@ const cleanedEndpoints = endpoints.map(endpoint => {
         <router-link to="/wishlist" class="navlink">{{ t('nav.wishlist') }}</router-link>
 
         <select v-model="$i18n.locale" class="lang-switcher navlink">
-        <option value="fr">FR</option>
-        <option value="en">EN</option>
+            <option value="fr">FR</option>
+            <option value="en">EN</option>
         </select>
     </nav>
 </template>
@@ -49,11 +49,13 @@ const cleanedEndpoints = endpoints.map(endpoint => {
         box-shadow: 0 10px 20px -5px oklch(from currentcolor 0.4 0.05 h / 0.15);
         transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         display: inline-block;
+        text-align: center;
+        align-items: center;
+        align-content: center;
     }
 
     .navlink:hover {
         transform: scale(1.05) translateY(-2px);
         box-shadow: 0 15px 25px -5px oklch(from currentcolor 0.4 0.05 h / 0.2);
-        /* filter: brightness(1.02); */
     }
 </style>

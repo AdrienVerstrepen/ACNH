@@ -10,7 +10,7 @@
         border-radius: 80px;
         background-color: var(--card-bg-color);
         height:100%;
-        width: 180px;
+        width: auto;
         display:grid;
         grid-template-rows: 1fr auto;
         transform-origin: center;

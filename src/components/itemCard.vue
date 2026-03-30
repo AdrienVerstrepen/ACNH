@@ -16,7 +16,6 @@ defineProps({
         <img :src="imageUrl" class="image">
     </div>
     <span><strong> {{ t(type + '.' +  name) }} </strong></span>
-    <slot></slot>
 </template>
 
 <style scoped>

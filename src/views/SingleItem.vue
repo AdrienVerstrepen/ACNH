@@ -25,7 +25,7 @@ onMounted(async () => {
     if (route.path.split("/")[1] == "fossils") {
         endpoint.value = route.path.split("/")[1] + "/individuals"
     } else {
-        route.path.split("/")[1]
+        endpoint.value = route.path.split("/")[1]
     }
     const name = route.path.split('/')[2]
     const data = await getOneItem(endpoint.value, name)

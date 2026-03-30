@@ -32,6 +32,7 @@ export default {
         gyroids: 'Gyroids',
         art: 'Arts',
         sea: 'Sea Creatures',
+        "infos": "More informations!"
     },
     fish: {
         "anchovy": "Anchovy",

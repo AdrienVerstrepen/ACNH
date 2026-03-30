@@ -8,7 +8,11 @@ import Navbar from './components/Navbar.vue';
 		<Navbar></Navbar>
 	</header>
 	<main>
-		<router-view :key="$route.fullPath"/>
+		<router-view v-slot="{ Component }">
+			<keep-alive>
+				<component :is="Component" :key="$route.path"/>
+			</keep-alive>
+		</router-view>
 		<NotificationPanel></NotificationPanel>
   	</main>
 	<!-- footer -->
