@@ -20,8 +20,8 @@ defineProps({
 </template>
 
 <style scoped>
-.image {
-    width: clamp(150px, 1em, 400px);
-    height: clamp(150px, 1em, 200px);
-}
+    .image {
+        width: clamp(150px, 1em, 400px);
+        height: clamp(150px, 1em, 200px);
+    }
 </style>

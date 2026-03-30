@@ -41,23 +41,19 @@ const cleanedEndpoints = endpoints.map(endpoint => {
 
     .navlink {
         margin: 10px;
-        padding: 10px;
+        padding: 7px;
         background-color: #FFEEA0;
         border-radius: 10px;
         text-decoration: none;
         color: var(--card-text-color);
         box-shadow: 0 10px 20px -5px oklch(from currentcolor 0.4 0.05 h / 0.15);
         transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        display: inline-block; /* Important pour que la transformation (scale) fonctionne bien */
+        display: inline-block;
     }
 
     .navlink:hover {
         transform: scale(1.05) translateY(-2px);
-
-        /* 2. L'ombre devient un peu plus diffuse et descend car l'objet "s'élève" */
         box-shadow: 0 15px 25px -5px oklch(from currentcolor 0.4 0.05 h / 0.2);
-
-        /* 3. Optionnel : éclaircir légèrement le fond */
-        filter: brightness(1.02);
+        /* filter: brightness(1.02); */
     }
 </style>
