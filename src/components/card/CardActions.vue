@@ -10,6 +10,7 @@ const props = defineProps({
   name: String,
   endpoint: String,
   image: String,
+  singlePaged: Boolean = false,
 })
 
 const { t } = useI18n()
@@ -26,6 +27,7 @@ const getItemDetail = (itemType, itemName) => {
 const wishlistStatus = computed(() => {
   return t('wishlist.' + store.isInWishlist(props.name))
 })
+
 </script>
 
 <template>
@@ -38,7 +40,7 @@ const wishlistStatus = computed(() => {
       <span class="text">{{ wishlistStatus }}</span>
       <span class="emoji">✨</span>
     </button>
-    <button @click="getItemDetail(props.endpoint, props.name)" class="btn-action btn-info">
+    <button @click="getItemDetail(props.endpoint, props.name)" class="btn-action btn-info" v-if="!singlePaged">
       <span class="emoji">🙀</span>
       <span class="text">{{ t('items.infos') }}</span>
       <span class="emoji">🙀</span>

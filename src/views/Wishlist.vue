@@ -1,9 +1,9 @@
 <script setup>
 import { useWishlistStore } from '@/stores/wishlistStore'
-import ItemCard from '@/components/itemCard.vue'
-import CardContainer from '@/components/CardContainer.vue'
-import ListContainer from '@/components/ListContainer.vue'
-import CardActions from '@/components/CardActions.vue'
+import ItemCard from '@/components/card/itemCard.vue'
+import CardContainer from '@/components/containers/CardContainer.vue'
+import ListContainer from '@/components/containers/ListContainer.vue'
+import CardActions from '@/components/card/CardActions.vue'
 
 const store = useWishlistStore()
 </script>

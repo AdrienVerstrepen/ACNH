@@ -1,7 +1,9 @@
 <script setup>
 import { useNotificationStore } from '@/stores/notificationStore'
 import { TransitionGroup } from 'vue'
+import { useI18n } from 'vue-i18n'
 
+const { t } = useI18n()
 const store = useNotificationStore()
 </script>
 
@@ -14,7 +16,7 @@ const store = useNotificationStore()
         :key="notification.id"
       >
         <span :class="notification.type">
-          {{ notification.message }}
+          {{ t(notification.messageKey.key, { name: t(notification.messageKey.params.name) }) }}
         </span>
       </div>
     </TransitionGroup>

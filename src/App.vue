@@ -15,7 +15,6 @@ import Navbar from './components/Navbar.vue';
 		</router-view>
 		<NotificationPanel></NotificationPanel>
   	</main>
-	<!-- footer -->
 </template>
 
 <style scoped>

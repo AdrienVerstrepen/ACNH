@@ -6,24 +6,32 @@ export const useNotificationStore = defineStore('notification', () => {
   const notifications = ref([])
 
   // GETTERS
-  const lastNotification = computed(() => notifications.findLast())
+  const lastNotification = computed(() => notifications.value[0])
 
   // ACTIONS
-  const addNotification = ((message, type, duration = 5000) => {
+  const addNotification = (messageKey, type = 'info', duration = 5000) => {
     const id = Date.now()
-    const notification = {id, message, type}
-    if (notifications.value.length > 5) {
+
+    notifications.value.unshift({
+      id,
+      messageKey: messageKey || { key: 'default.error', params:{} },
+      type
+    })
+
+    if (notifications.value.length >= 5) {
       notifications.value.pop()
     }
-    notifications.value.unshift(notification)
 
     setTimeout(() => {
         removeNotification(id)
     }, duration)
-  })
+  }
 
   const removeNotification = ((id) => {
-    notifications.value = notifications.value.filter(notification => notification.id != id)
+    const index = notifications.value.findIndex(n => n.id === id)
+    if (index !== -1) {
+      notifications.value.splice(index, 1)
+    }
   })
 
   return {

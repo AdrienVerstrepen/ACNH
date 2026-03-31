@@ -1,12 +1,84 @@
 export default {
     wishlist: {
-        true: "Remove from your wishlist",
-        false: "Add to your wishlist",
-        added: "added to your wishlist !",
-        removed: "removed from your wishlist..."
+        true: "Remove from wishlist",
+        false: "Add to wishlist",
+        added: "{name} added to wishlist",
+        removed: "{name} removed from wishlist"
     },
     sentences: {
-        loading: "Loading..."
+        loading: "Loading...",
+        sell: "Sell price",
+        fake: "Fake!"
+    },
+    location: {
+        "Sea": "Sea",
+        "River": "River",
+        "River (mouth)": "River (mouth)",
+        "River (clifftop)": "River (clifftop)",
+        "Pond": "Pond",
+        "Pier": "Pier",
+        "Flying": "Flying",
+        "Flying near flowers": "Flying near flowers",
+        "Flying near light sources": "Flying near light sources",
+        "On trees (any kind)": "On trees (any kind)",
+        "On palm trees": "On palm trees",
+        "On tree stumps": "On tree stumps",
+        "On the ground": "On the ground",
+        "On flowers": "On flowers",
+        "On white flowers": "On white flowers",
+        "Shaking trees": "Shaking trees",
+        "Underground": "Underground",
+        "On/near spoiled turnips/candy/lollipops": "On/near spoiled turnips/candy/lollipops",
+        "On beach rocks": "On beach rocks",
+        "On bushes and rocks (raining)": "On bushes and rocks (raining)",
+        "Under rocks": "Under rocks",
+        "On water's surface": "On water's surface",
+        "Flying near trash (boots, tires, cans) or turnips": "Flying near trash (boots, tires, cans) or turnips",
+        "On villagers": "On villagers",
+        "dig spot": "Inside dig spots"
+    },
+    singleItem: {
+        "location" : "Location",
+        "rarity" : "Rarity",
+        "shadow" : "Shadow size",
+        "weather" : "Weather conditions",
+        "variation_total": "Total variations",
+        "sound": "Sound",
+        "customizable": "Customizable",
+        "availability": "Availability",
+        "fossil_group": "Fossil group",
+        "interactable": "Interactable",
+        "has_fake": "Has fake version",
+        "art_type": "Art type",
+        "art_style": "Style",
+        "author": "Author",
+        "year": "Year",
+        "buy": "Buy price"
+    },
+    rarity: {
+        "Common": "Common",
+        "Uncommon": "Uncommon",
+        "Rare": "Rare",
+        "Very Rare": "Very Rare"
+    },
+    shadow: {
+        "Tiny": "Tiny",
+        "Small": "Small",
+        "Medium": "Medium",
+        "Large": "Large",
+        "Very large": "Very large",
+        "Huge": "Huge",
+        "Long": "Long",
+        "Finned": "Finned"
+    },
+    weather: {
+        "Any weather": "Any weather",
+        "Any except rain": "Any except rain",
+        "Rain": "Rain"
+    },
+    boolean: {
+        "true": "Yes",
+        "false": "No"
     },
     nav: {
         home: 'Home',

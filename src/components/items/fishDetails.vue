@@ -1,4 +1,7 @@
 <script setup>
+import { useI18n } from 'vue-i18n';
+
+const { t } = useI18n()
 
 const props = defineProps({
     details: Object
@@ -6,16 +9,15 @@ const props = defineProps({
 </script>
 
 <template>
-    <div class="location">
-        {{ details.location }}
-    </div>
-    <div class="rarity">
-        {{ details.rarity }}
-    </div>
-
-    <div v-for="detail in details">
-        <p>{{ detail }}</p>
-    </div>
+    <p class="location">
+        {{ t("singleItem.location") }} {{ t("location." + details.location) }}
+    </p>
+    <p class="rarity">
+        {{ t("singleItem.rarity") }} : {{ t("rarity." + details.rarity) }}
+    </p>
+    <p class="shadow">
+        {{ t("singleItem.shadow") }} : {{ t("shadow." + details.shadow_size) }}
+    </p>
 </template>
 
 <style scoped>

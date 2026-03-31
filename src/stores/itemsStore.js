@@ -12,10 +12,8 @@ export const useItemStore = defineStore('items', () => {
 
     })
   })
-  
 
   // ACTIONS
-
   return {
     filteredItems
   }

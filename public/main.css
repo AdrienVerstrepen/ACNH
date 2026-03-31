@@ -4,9 +4,9 @@
   --card-text-color: #5d4037;
   --title-font: 'Valera Round', sans-serif;
   --text-font: 'Hind', sans-serif;
-  --content-bg-image: url("../src/assets/background-image.jpg");
-  --navbar-bg-image: url("../src/assets/grass-patern-2.png");
-  --money-icon: url("../src/assets/medium-money-bag.png");
+  --content-bg-image: url("../assets/background-image.jpg");
+  --navbar-bg-image: url("../assets/grass-patern-2.png");
+  --money-icon: url("../assets/medium-money-bag.png");
 }
 
 body {

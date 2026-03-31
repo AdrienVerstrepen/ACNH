@@ -1,5 +1,7 @@
 <script setup>
-import { onMounted, ref } from 'vue';
+import { useI18n } from 'vue-i18n';
+
+const { t } = useI18n()
 
 const props = defineProps({
     details: Object
@@ -8,23 +10,14 @@ const props = defineProps({
 </script>
 
 <template>
-    <pre>
-        {{ details }}
-    </pre>
-    <p>
-        Numéro : {{ props.details.number }}
+    <p class="location">
+        {{ t("singleItem.location") }} {{ t("location." + details.location) }}
+    </p>
+    <p class="rarity">
+        {{ t("singleItem.rarity") }} : {{ t("rarity." + (details.rarity || "Common")) }}
     </p>
     <p>
-        Locisation : {{ props.details.location }}
-    </p>
-    <p>
-        Météo : {{ props.details.weather }}
-    </p>
-    <p>
-        rarity : {{ props.details.rarity }}
-    </p>
-    <p>
-        catchphrases : {{ props.details.catchphrases }}
+        {{ t("singleItem.weather") }} : {{ t("weather." + (details.weather)) }}
     </p>
 </template>
 

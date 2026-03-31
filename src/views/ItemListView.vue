@@ -3,19 +3,12 @@ import { ref, computed } from 'vue';
 import { getAllItems } from '@/api/itemApiEndpoint';
 import { onMounted } from 'vue';
 import { useRouter, useRoute } from 'vue-router';
-import itemCard from '@/components/itemCard.vue';
 import { useWishlistStore } from '@/stores/wishlistStore';
 import { standardize } from '@/utils/standardize';
-import CardContainer from '@/components/CardContainer.vue';
 import SearchBar from '@/components/SearchBar.vue';
 import { useI18n } from 'vue-i18n';
 import ItemList from '@/components/ItemList.vue';
 const { t } = useI18n()
-
-const store = useWishlistStore()
-
-const router = useRouter()
-const route = useRoute()
 
 const items = ref([])
 
@@ -61,5 +54,4 @@ const filteredItems = computed(() => {
 </template>
 
 <style scoped>
-    
 </style>

@@ -1,12 +1,91 @@
 export default {
-    wishlist: {
+wishlist: {
         true: "Retirer de la liste de vœux",
         false: "Ajouter à la liste de vœux",
-        added: "ajouté(e) à la liste de vœux",
-        removed: "retiré(e) de la liste de vœux"
+        added: "{name} ajouté(e) à la liste de vœux",
+        removed: "{name} retiré(e) de la liste de vœux"
     },
     sentences: {
         loading: "Chargement...",
+        sell: "Prix de revente",
+        fake: "Faux !"
+    },
+    location: {
+        "Sea": "dans la mer",
+        "River": "dans les rivières",
+        "River (mouth)": "à l'embouchure des rivières",
+        "River (clifftop)": "proche des cascades",
+        "Pond": "dans les étangs",
+        "Pier": "sous les pontons",
+        "Flying": "volant sur l'île",
+        "Flying near flowers": "volant près des fleurs",
+        "Flying near light sources": "volant près des sources de lumière",
+        "On trees (any kind)": "sur les troncs d'arbres",
+        "On palm trees": "sur les palmiers",
+        "On tree stumps": "sur les souches d'arbres",
+        "On the ground": "au sol",
+        "On flowers": "sur les fleurs",
+        "On white flowers": "sur les fleurs blanches",
+        "Shaking trees": "en secouant les arbres",
+        "Underground": "sous terre",
+        "On/near spoiled turnips/candy/lollipops": "sur/près des navets pourris, bonbons ou sucettes",
+        "On beach rocks": "sur les rochers de la plage",
+        "On bushes and rocks (raining)": "sur les buissons et rochers (sous la pluie)",
+        "Under rocks": "sous les rochers",
+        "On water's surface": "à la surface de l'eau",
+        "Flying near trash (boots, tires, cans) or turnips": "volant près des déchets ou des navets",
+        "On villagers": "sur les villageois",
+        "dig spot": "en creusant"
+    },
+    singleItem: {
+        "location" : "Trouvable",
+        "rarity" : "Rareté",
+        "shadow" : "Taille de l'ombre",
+        "weather" : "Condition météorologiques propices",
+        // Gyroïdes
+        "variation_total": "Nombre de variations",
+        "sound": "Son",
+        "customizable": "Personnalisable",
+        "availability": "Disponibilité",
+        // Fossiles
+        "fossil_group": "Groupe de fossiles",
+        "interactable": "Interactif",
+        // Art
+        "has_fake": "Existe en contrefaçon",
+        "art_type": "Type d'œuvre",
+        "art_style": "Style",
+        "author": "Auteur",
+        "year": "Année / Époque",
+        "buy": "Prix d'achat"
+    },
+    rarity: {
+        "Common": "commune",
+        "Uncommon": "peu commune",
+        "Rare": "rare",
+        "Very Rare": "très rare"
+    },
+    shadow: {
+        "Tiny": "minuscule",
+        "Small": "petite",
+        "Medium": "moyenne",
+        "Large": "grande",
+        "Very large": "très grande",
+        "Huge": "gigantesque",
+        "Long": "fine et longue",
+        "Finned": "avec aileron"
+    },
+    weather: {
+        "Any weather": "tout temps",
+        "Any except rain": "tout temps, sauf pluvieux",
+        "Rain": "pluie / neige"
+    },
+    boolean: {
+        "true": "Oui",
+        "false": "Non"
+    },
+    buttons: {
+        addToCol: "Ajouter à la collection",
+        removeFromCol: "Retirer de la collection",
     },
     "nav": {
         "home": "Accueil",

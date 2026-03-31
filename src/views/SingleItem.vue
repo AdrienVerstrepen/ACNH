@@ -9,8 +9,9 @@ import FishDetails from '@/components/items/fishDetails.vue';
 import ArtDetails from '@/components/items/artDetails.vue';
 import GyroidDetails from '@/components/items/GyroidDetails.vue';
 import SeaCreatureDetails from '@/components/items/seaCreatureDetails.vue';
-import { useWishlistStore } from '@/stores/wishlistStore';
 import Loading from '@/components/Loading.vue';
+import CardActions from '@/components/card/CardActions.vue';
+import FossilDetails from '@/components/items/fossilDetails.vue';
 
 const { t } = useI18n()
 
@@ -32,6 +33,7 @@ onMounted(async () => {
     const data = await getOneItem(endpoint.value, name)
     item.value = standardize(data)
     loading.value = false
+    console.log(endpoint)
 })
 
 const detailComponents = {
@@ -40,9 +42,9 @@ const detailComponents = {
     art: ArtDetails,
     gyroids: GyroidDetails,
     seaCreature: SeaCreatureDetails,
+    "fossils/individuals": FossilDetails,
+    sea: SeaCreatureDetails,
 }
-
-const store = useWishlistStore()
 
 </script>
 
@@ -54,17 +56,13 @@ const store = useWishlistStore()
         <div class="content">
             <div class="baseInfo">
                 <img :src="item.image" class="image">
-                <span><strong> {{ t(endpoint + "." + item.name)}} </strong></span>
+                <span><strong> {{ t(endpoint + "." + item.name) }} {{ item.details.number ? `#${item.details.number}` : "" }}  </strong></span>
             </div>
             <div class="price">
-                Prix : {{ item.sell }} <div class="money-bag"></div>
+                {{ t("sentences.sell") }} : {{ item.sell }} <div class="money-bag"></div>
             </div>
-            <p></p>
-            <p></p>
-            <p></p>
-            <p></p>
             <component :is="detailComponents[endpoint]" v-if="detailComponents[endpoint]" :details="item.details"></component>
-            <button @click="store.toggleWishlist(element.name, element.type, element.image)">{{ store.isInWishlist ? "Retirer des favs" : "ajouter aux fav"}}</button>
+            <CardActions :name="item.name" :image="item.image" :endpoint="endpoint" :single-paged="true"></CardActions>
         </div>
     </div>
 </template>

@@ -6,7 +6,7 @@
 
 L'**ACNH** ou l'**Archive des Collectibles Nouvellemment Homologués** est une plateforme ayant pour but de donner un accès rapide à son avancement sur la complétion du jeu *Animal Crossing New Horizons*.
 
-Ici vous pourrez garder une trace de l'avancée de vos collections : 
+Ici vous pourrez maintenir à jour une liste de souhait, qui contient les éléments que vous cherchez actuellement à obtenir dans le jeu : 
 - 🐡 Poissons
 - 🦴 Fossiles
 - 🎨 Œuvres d'art
@@ -14,13 +14,11 @@ Ici vous pourrez garder une trace de l'avancée de vos collections :
 - 🤖 Gyroïdes
 - 🦐 Créatures marines
 
-Vous pouvez également suivre une wishlist qui contient les éléments que vous souhaitez obtenir prochainement.
-
 ## 🇬🇧 Project Overview
 
 **ACNH** or the Archive of Newly Homologated Collectibles is a plateform designed to provide quick access to your completion progress in *Animal Crossing New Horizons*.
 
-With this tool, you will be able to track your different collections : 
+With this tool, you will be able to keep track of the items you are currently chasing down : 
 - 🐡 Fish
 - 🦴 Fossils
 - 🎨 Art pieces
@@ -28,27 +26,22 @@ With this tool, you will be able to track your different collections :
 - 🤖 Gyroids
 - 🦐 Sea creatures
 
-A wishlist feature is also available to help you keep track of the items you are chasing down.
-
 ### Stack
 * **Front-end** : Vue.js 
-* **Style** : self-made old school CSS
 * **Back-end/API** : Nookipedia REST API
 * **Deployment** : Docker and Azure
 
 ## Déploiement / Deployment
 
-### Docker
-
 ### Local
 
 First, get the source code : 
-```sh
+```bash
 git clone https://github.com/AdrienVerstrepen/ACNH.git
 ```
 
 Then, install the dependancies : 
-```
+```bash
 cd ./ACNH
 npm i 
 ```
@@ -56,17 +49,28 @@ npm i
 Once the deps are installed, configure your .env with your [Nookipedia API](https://api.nookipedia.com/) key.
 
 After that, you'll be ready to go :
+```bash
+npm run build
 ```
-npm run dev
+
+Once the previous script has ended, please enter : 
+```bash
+npm run preview
 ```
-
-## 📄 Documentation
-
-### Structure
-
-### Tests
 
 ### Possibilités d'ouvertures / Future Improvments
+
+L'ajout des villageois et des disponibilités temporelles des poissons, insectes, créature marines pourrait être une extension à ce projet.
+
+## Difficultés rencontrées / Difficulties met
+
+L'API Nookipedia, bien que très riche et utile, manque de disponibilité. Qui plus est, les données ne sont pas standardisées ce qui cause des problèmes pour la gestion des données.
+
+La variété des éléments rencontré a rendu difficile la création de composants. Au départ, l'approche suivie était un composant carte par élément (Gyroide, Poisson, Insecte, ...). 
+
+L'approche finalement réalisée a été de tout standardiser puis de réaliser des opérations sur les différentes listes portant les éléments standards.
+
+Cela permet une réutilisation plus propre des composants et permet de réduire le boilerplate.
 
 ## 🏷️ Credits
 

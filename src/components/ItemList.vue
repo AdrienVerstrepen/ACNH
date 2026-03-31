@@ -1,9 +1,10 @@
 <script setup>
-import itemCard from './itemCard.vue'
-import CardContainer from './CardContainer.vue'
-import ListContainer from './ListContainer.vue'
-import CardActions from './CardActions.vue'
+import itemCard from './card/itemCard.vue'
+import CardContainer from './containers/CardContainer.vue'
+import ListContainer from './containers/ListContainer.vue'
+import CardActions from './card/CardActions.vue'
 import { useI18n } from 'vue-i18n'
+import { useWishlistStore } from '@/stores/wishlistStore'
 
 const props = defineProps({
 	items: Array,
@@ -11,6 +12,8 @@ const props = defineProps({
 })
 
 const { t } = useI18n()
+
+const store = useWishlistStore()
 
 </script>
 

@@ -4,7 +4,6 @@ import { useNotificationStore } from './notificationStore'
 import i18n from '@/i18n'
 
 export const useWishlistStore = defineStore('wishlist', () => {
-  const { t } = i18n.global
 
   // STATES
   const wishlist = ref([])
@@ -19,12 +18,18 @@ export const useWishlistStore = defineStore('wishlist', () => {
 
   const addToWishlist = (name, type, imgUrl) => {
     wishlist.value.push({"name": name, "type": type, "image": imgUrl})
-    notificationStore.addNotification(`${t(type + "." + name)} ${t("wishlist.added")}`)
+    notificationStore.addNotification({
+      key: "wishlist.added",
+      params: { name: `${type}.${name}`}
+    }, 'success')
   }
 
   const removeFromWishlist = (name, type) => {
     wishlist.value = wishlist.value.filter((currentElement) => !(currentElement.name == name && currentElement.type == type))
-    notificationStore.addNotification(`${t(type + "." + name)} ${t("wishlist.removed")}`)
+    notificationStore.addNotification({
+      key: 'wishlist.removed',
+      params: { name: `${type}.${name}` }
+    }, 'info')
   }
 
   const toggleWishlist = (name, type, imgUrl) => {

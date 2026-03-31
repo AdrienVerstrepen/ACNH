@@ -1,5 +1,4 @@
 <script setup>
-import router from '@/router';
 import { useI18n } from 'vue-i18n'
 
 const { t } = useI18n()
@@ -15,5 +14,4 @@ const { t } = useI18n()
 </template>
 
 <style scoped>
-
 </style>
