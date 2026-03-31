@@ -11,13 +11,13 @@ export const useWishlistStore = defineStore('wishlist', () => {
   const notificationStore = useNotificationStore()
 
   // GETTERS
+  const wishlistNames = computed(() => new Set(wishlist.value.map(element => element.name)))
   const numberOfWishes = computed(() => wishlist.value.length)
 
   // ACTIONS
-  const isInWishlist = (name) => wishlist.value.some(favori => favori.name === name)
+  const isInWishlist = (name) => wishlistNames.value.has(name)
 
   const addToWishlist = (name, type, imgUrl) => {
-    console.log(name, type)
     wishlist.value.push({"name": name, "type": type, "image": imgUrl})
     notificationStore.addNotification(`${t(type + "." + name)} ${t("wishlist.added")}`)
   }
@@ -28,8 +28,6 @@ export const useWishlistStore = defineStore('wishlist', () => {
   }
 
   const toggleWishlist = (name, type, imgUrl) => {
-    console.log(name, type)
-    console.log(wishlist.value)
     if (isInWishlist(name)) {
       removeFromWishlist(name, type)
     } else {

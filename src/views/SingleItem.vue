@@ -10,6 +10,7 @@ import ArtDetails from '@/components/items/artDetails.vue';
 import GyroidDetails from '@/components/items/GyroidDetails.vue';
 import SeaCreatureDetails from '@/components/items/seaCreatureDetails.vue';
 import { useWishlistStore } from '@/stores/wishlistStore';
+import Loading from '@/components/Loading.vue';
 
 const { t } = useI18n()
 
@@ -47,7 +48,7 @@ const store = useWishlistStore()
 
 <template>
     <div v-if="loading">
-        <div class="content">{{ t("sentences.loading") }}</div>
+        <Loading></Loading>
     </div>
     <div v-else>
         <div class="content">

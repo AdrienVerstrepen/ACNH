@@ -18,6 +18,8 @@
           transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
           box-shadow 0.3s ease;
         overflow: hidden;
+        padding: 3px;
+        justify-content: center;
     }
 
     .card:hover{

@@ -10,11 +10,11 @@
 <style scoped>
     .grid-container {
         display:grid;
-        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        grid-template-columns: 1fr 1fr 1fr 1fr;
         justify-content: center;
-        justify-items: center;
+        /* justify-items: center; */
         text-align: center;
-        gap: 5.3em;
+        gap: 2em;
         padding: 20px;
     }
 </style>
